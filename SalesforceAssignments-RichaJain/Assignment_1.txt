@@ -1,0 +1,31 @@
+public class Assignment_1{
+
+
+/*
+ * Method to return all the Students name for the passed class id
+ * args- Class Id
+ */
+
+public static List<Name> getAllStudentsNameInClass(Integer classId){
+
+        List<Name> studentNames = [select Name from Student where classId=:classId]
+	return studentNames ;
+
+}
+
+/*
+ * Method to return Map<Class,Set<StudentId>> Students name for the passed class id
+ * args- Class Id
+ */
+
+public static List<Name> getAllStudentsNameInClass(Integer classId){
+
+        List<Name> studentNames = [select Name from Student where classId=:classId]
+	return studentNames ;
+
+}
+
+
+
+
+}

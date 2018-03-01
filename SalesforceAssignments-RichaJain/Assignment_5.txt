@@ -1,0 +1,53 @@
+1. >> On Insert of Loan record populate the field of Manager(Loan field) according to CityManager Object (On before insert rigger for it).
+ 
+
+
+	UpdateManagerOnLoanInsert.apxt
+
+
+
+
+Functionality
+ 
+>> On Insert of Loan record populate the field of Manager(Loan field) according to CityManager Object (On before insert rigger for it).
+ 
+>> Create an Approval Process on Loan,
+
+>>  If Amount greater then 15000   - done
+
+>>  When submitted for approval then till approval/reject user cannot edit the record (System admin can edit).   -- done 
+
+ >>  Record must be approved/reject by Related Manager   -- testing
+
+ >>  Mail should be sent to Owner on Approving and Rejecting of the Loan   -- [One who is raising the loan request]    [Test this also]
+
+ >>  After Approving/Rejecting ,record should be editable  - test this
+
+>> API also available for   Approval Process , have a look and  prepare a brief doc of “How to submit /approve… by code”
+ 
+Note:- Create one more user(Other then Sys admin) on your  org(Update Profile for CRUD permisson on these 2 objects) and check this functionality.
+ 
+
+
+Problems
+
+
+1. After approving the loan I am able to edit the details of the loan - Loan-00009 - Working
+2. After rejecting the loan I am able to edit the details of the loan 
+3. Mail should be sent to Owner on Approving and Rejecting of the Loan - This action needs to be created on Final Approval and Rejection section [email alert]
+4. Related Manager Should approve it - how to get this detail populated -
+
+----- Error below -----
+This record requires additional approval. The name of the next step is
+Step 1
+Your administrator has specified that you must manually choose who the next approver should be. Specify a user or queue in the box below, then click Send to Next Approver.
+
+5. When submitted for approval then till approval/reject user cannot edit the record (System admin can edit).   -- Not Working
+
+
+
+City		Manager			email
+
+Gwl    		Akansha Jain		richa.jain@metacube.com
+Jaipur		Bhuwan Jain		richa.jain@metacube.com
+Bhopal		Richa Jain		richa5.richa5@gmail.com

@@ -1,0 +1,108 @@
+1) Create a class and a static function which take classid as argument and returns all names of the students in that class as a list.
+2) Create a function which returns a map where key is class and value is set of studentid in it.
+3) Create a function which take 2 dates as argument and return number of working days between   two days excluding both days(Saturday and Sunday is nonworking)
+	
+	StudentClassDetails.apxc
+
+Id i = new Id('a067F000004l5mqQAA');
+StudentClassDetails.getAllStudentNamesForClass(i);
+
+
+
+StudentClassDetails s= new StudentClassDetails();
+s.getClassWithStudents();
+
+
+StudentClassDetails.getWorkingDays(Date.parse('02/20/18'),Date.parse('02/27/18'));
+
+
+4) Create Stach class in Apex
+
+	StackAssgn3.apxc
+
+
+case 1	- Push
+
+StackAssgn3 s = new StackAssgn3();
+s.push(10.0);
+s.push(5.0);
+s.push('+');
+
+s.printAllStackItems();
+
+case 2  - Stack overflow
+
+
+StackAssgn3 s = new StackAssgn3();
+s.push(10.0);
+s.push(5.0);
+s.push('+');
+s.push('-');
+s.push('%');
+s.push('*');
+
+s.printAllStackItems();
+
+
+case 3 - Stack underflow with pop
+
+
+StackAssgn3 s = new StackAssgn3();
+
+s.push(10.0);
+s.push(5.0);
+s.push('+');
+s.push('-');
+s.push('%');
+
+
+s.pop();
+s.pop();
+s.pop();
+s.pop();
+s.pop();
+s.pop();
+s.pop();
+
+s.printAllStackItems();
+
+
+5) Create a Scheduler to mail to Opportunity Owner , if not modified for last 30 days.
+
+	EmailOpportunityOwner.apxc
+	OpportunityScheduler.apxc
+
+   -- To Test ---
+	OpportunityScheduler o = new OpportunityScheduler();
+	o.execute(null);
+
+6) Create a Class which show the list of sobjects exists in Organization.
+
+	FetchAllSObjects.apxc
+
+
+7) Create a class and a static function which take ContactID as argument. Create one Custom field in Account Object(ContactIDs), it is comma separated of all related Contact IDs, check if it is Null or not:-
+   IF Null, then fetch all related Account Contacts and store IDs of all Contacts in it.
+   IF Not Null, then check Is Contact Id exist on this field, if not then append it on that field.
+
+	CreateContactOnAccountsIfExistsNot.apxc
+
+
+    ------ To Test --------
+
+	CreateContactOnAccountsIfExistsNot.populateAccountContacts('0037F00000O4p2zQAB');
+
+
+8) Create 2 new Fields of type Lookup in Opportunity named ( BillToContact(Contact) and Manager(Account). Create a function in Class which called on Update of Opportunities (from Trigger), it take List<Oppty> as argument and in function check BillToContact Field if it is not Blank and Manager is Blank then populate Manager Field by related account which is linked with the contact given in BillToContact field..
+
+	
+	OpportunityPopulateManagerBillContact.apxc
+	OppTriggerManagerUpd.apxt
+
+
+--------- To Test (use below)   ----------
+Go to Opportunities , update the Account then the manager should also get changed
+
+
+
+

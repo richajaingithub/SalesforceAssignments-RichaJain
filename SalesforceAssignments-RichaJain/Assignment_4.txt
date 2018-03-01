@@ -1,0 +1,31 @@
+1. Not Allow any teacher to insert/update if that teacher is teaching Hindi.
+
+	TeacherTrigger.apxt  
+
+2. Not allow delete to class if there are more then one Female students
+
+	StopDeletionClassTrigger.apxt  - Code can be refractored 
+
+3. Not allow insert student if class already reached MaxLimit.
+
+	StudentTriggerAfterMaxLimit.apxt
+
+4. When insert/update any student’s in class then  update MyCount Accordingly.
+
+	UpdateMyCountOnStudentTrigger.apxt  
+
+5. In Opportunity, If the stage is changed from another value  to CLOSED_WON or CLOSED_LOST, populates the Close Date field with Today().
+
+	OpportuintyTriggerToUpdateCloseDate.apxt
+
+
+6. Create a new PickList  “Custom Status” in Opportunity object.(New,Open,Close,Reset) values. 
+When this field changed and value is “Reset” now then delete all associated  products(opp. Lines) with related Opportunity.
+
+	OpportunityDeleteOppLines.apxc
+
+
+	
+
+
+
