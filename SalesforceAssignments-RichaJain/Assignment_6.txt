@@ -1,0 +1,73 @@
+1) Create Page for Class and Student and override “New” and “Edit”
+
+	ClassPageForEdit.vpf
+	StudentPageForEdit.vpf	
+
+-- To Test --- 
+
+	https://c.ap5.visual.force.com/apex/NewEditforClassObj?core.apexpages.request.devconsole=1&id=a057F000003tPO6QAM   - Class
+
+	
+	https://c.ap5.visual.force.com/apex/NewEditforStudentObj?core.apexpages.request.devconsole=1&id=a057F000003tQYKQA2	-- Student 
+
+
+2) Create a Page Where some Filters in BilingCity, BillingState,BillingCountry of Account and Click on  Search displaying first 100 Accounts
+
+
+		AccountSearch100RecordsWithFiltersCtrl.apxc
+		AccountSearch100RecordsWithFilters.vfp
+
+
+
+3) Create a Page Where some Filters in BilingCity, BillingState,BillingCountry of Account and Click on  Search displaying first 10 Accounts at a Time and Provide Pagination for (Previous Next and First and Last)
+		Hint :: ApexStandardSetController API
+
+http://www.sfdcpoint.com/salesforce/pagination-using-standard-set-controller-salesforce/   - refer for Help
+
+ 		AccountSearch100RecordsWithFiltersCtrl.apxc
+		AccountSearch100RecordsWithFilters.vfp
+
+
+
+4) Build a Custom Lookup Screen. As you have created 2 new fields (BillToContact and Manager) on Opportunity previously. Now requirement is Select BillToContact using Custom LookUp (List show Contacts related to that Manager).
+	>> Create a new formula field (Select Bill To Contact) and Link to a New Custom VF Page(Hint :: HyperLink). 
+	>> VF Page showing List of Contacts which is related to that Manager with additional radio Button.
+	>> Page Contains 3 buttons (Save ,Clear Cancel). 
+	>> On Click of Save selected Contact store in BillToContact Field and return back to Opportunity
+	>> On Click of Clear set BillTo Contact Field Null and return back to Opportunity
+	>> Do nothing and return back to Opportunity
+
+
+
+5)  Create a Formula Link Field named “Generate PDF” .
+	      >> Create VF Page containing Student detail information (some general details)
+              >> On Click of this Link PDF will generated and attached with related Student and user can see any time that PDF. 
+	      >> PDF will contain some general information about Student.                                              
+	      >> IF PDF already there then delete old one and create new one.
+
+	GeneratePdfForStudent.vfp 
+	StudentpdfController.apxc
+
+
+
+6) Create a page which show output as a JSON formatted string. (We can use this mechanism when we send response to any service as a JSON)
+
+	JsonGenerator.apxc
+	JsonGeneratoPage.vfp
+
+
+7) Create 2 recordtypes (TGT and PGT) in Teacher (Contact) table and on detail page show bar as a Header containing “Record Type Value” in a bar. See snapshot on next slide.
+
+	RecordTypeAssgnClass.apxc
+	RecordTypeAssgnPage.vfp
+
+
+8) Create VF Page Manage Class , On this Page show list of available classes with Edit and Del Link. When will user click on Edit a small Area displayed just below the same page with some fields (4-5 fields). User can save and return back to same Page. (You can use ajax functionality for same).
+
+
+	ClassManageController.apxc
+	ClassManageCtrlPage.vfp
+
+
+
+
