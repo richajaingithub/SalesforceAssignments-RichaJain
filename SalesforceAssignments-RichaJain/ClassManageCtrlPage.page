@@ -1,0 +1,55 @@
+<apex:page standardController="Class__c" extensions="ClassManageController" >
+    <apex:form >
+            
+    	<apex:pageBlock id="firstpageblock">
+        	<apex:pageBlockTable value="{!Class}" var="cls">
+               
+            <apex:column value="{!cls.Name}"/>
+            <apex:column value="{!cls.ClassTeacher__c}"/>
+            <apex:column value="{!cls.Fee__c}"/>
+            <apex:column value="{!cls.MaxSize__c}"/>
+            <apex:column >
+                <apex:actionRegion >
+                    <a href="javascript: editFunction('{!cls.id}');" style="font-weight:bold">Edit</a>
+                </apex:actionRegion>
+            </apex:column>
+            <apex:column >
+                <apex:actionRegion >
+                    <a href= "javascript:if(window.confirm('Are you sure ?')) deleteFunction('{!cls.id}');" style="font-weight:bold"> Delete </a>
+                </apex:actionRegion>
+            </apex:column>
+                
+            </apex:pageBlockTable>
+           
+        <apex:actionFunction action="{!editClass}" reRender="secondPageBlock" name="editFunction">
+            <apex:param value="" name="clsid" assignTo="{!selectedClsId}"/>
+        </apex:actionFunction>
+
+        <apex:actionFunction action="{!deleteClass}" reRender="firstPageBlock" name="deleteFunction">
+            <apex:param value="" name="clsid" assignTo="{!selectedClsId}"/> 
+        </apex:actionFunction>
+        
+        </apex:pageBlock>
+        
+         
+        <apex:pageBlock mode="Edit" id="secondPageBlock">
+        <apex:outputPanel title="Edit Class" rendered="{!!(ISNULL(editData))}" >
+            <apex:panelGrid id="editPanel" columns="2">
+                 <center> <apex:outputText value="Edit Class" style="font-weight:bold"/> </center>
+                 <apex:outputText />
+                 <apex:outputText value="Name"/>
+                 <apex:inputField value="{!editData.Name}" />
+                 <apex:outputText value="Class Teacher"/>
+                 <apex:inputField value="{!editData.ClassTeacher__c}" />
+                 <apex:outputText value="Fee"/>
+                 <apex:inputField value="{!editData.Fee__c}" />
+                 <apex:outputText value="Max Size"/>
+                 <apex:inputField value="{!editData.MaxSize__c}" />
+                 <apex:commandButton value="Cancel" action="{!cancelEdit}"/>
+                 <apex:commandButton value="Save" action="{!updateClass}"/>       
+            </apex:panelGrid>
+        </apex:outputPanel>
+    </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

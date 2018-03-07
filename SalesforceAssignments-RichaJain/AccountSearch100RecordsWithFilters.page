@@ -1,0 +1,23 @@
+<apex:page controller="AccountSearch100RecordsWithFiltersCtrl" >
+   <apex:form >
+    <apex:pageBlock title="Account Search Page">
+    
+        <apex:outputLabel value="Billing City" />  <apex:inputText value="{!billingCity}" /> <br/><br/>
+        <apex:outputLabel value="Billing State" />  <apex:inputText value="{!billingState}" /><br/><br/>
+        <apex:outputLabel value="Billing Country" />  <apex:inputText value="{!billingCountry}" /> <br/><br/>       
+       
+        <apex:pageblockTable value="{!accountSearchResults}" var="results">
+            <apex:column headerValue="Name" value="{!results.Name}"/>
+            <apex:column headerValue="Account Number" value="{!results.AccountNumber}"/>
+            <apex:column headerValue="Billing Address" value="{!results.BillingCity}"/>
+            <apex:column headerValue="Billing Address" value="{!results.BillingState}"/>
+            <apex:column headerValue="Billing Address" value="{!results.BillingCountry}"/>
+        </apex:pageblockTable>
+        
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!search}" value="Search" />
+        </apex:pageBlockButtons>
+        
+    </apex:pageBlock>
+  </apex:form> 
+</apex:page>
