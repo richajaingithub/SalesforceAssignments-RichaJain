@@ -1,0 +1,92 @@
+<apex:component controller="CompositionExample">
+    <apex:form >     
+      
+      <apex:pageBlock >
+      
+       	<apex:pageBlockSection title="Error Message" rendered="{!errors}"> 
+			<apex:messages />  
+     	</apex:pageBlockSection>  
+          
+        <apex:pageBlockSection title="Sql Query">
+        	<apex:outputLabel value="Enter the Query" /><apex:inputTextarea value="{!SOQLquery}" cols="80" rows="5"/>            
+        </apex:pageBlockSection>
+          
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!executeQuery}" value="Execute" />
+        </apex:pageBlockButtons>
+      
+   		<apex:pageBlockSection id="pbId" collapsible="false" columns="1">
+        	<apex:pageBlockTable value="{!recordList}" var="record">
+                 <apex:repeat value="{!fieldsList}" var="field">
+        	<!--		<apex:column >
+                	  	 <apex:facet name="header">
+                                    <apex:commandLink value="{!field}" action="{!sort}"> 
+                                        <apex:param name="column" value="{!field}" assignTo="{!column}"/>
+                                    </apex:commandLink>
+                         </apex:facet>   
+                         <apex:outputText value="{!record[field]}" />      
+				
+		-->
+<apex:column >
+  <apex:facet name="header" > 
+      <apex:commandLink action="{!sort}" value="{!field}{!IF(sortExpression=='name',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort">
+        <apex:param value="{!field}" name="column" assignTo="{!sortField}" ></apex:param>
+       </apex:commandLink>
+     </apex:facet>
+  <apex:outputText value="{!record[field]}" />   
+
+  </apex:column>
+                       
+                    <!-- 
+
+
+<apex:column >
+
+  <apex:facet name="header"> 
+      <apex:commandLink action="{!sort}" value="Account Name{!IF(sortExpression=='name',IF(sortDirection='ASC','▼','▲'),'')}" id="cmdSort">
+        <apex:param value="name" name="column" assignTo="{!sortExpression}" ></apex:param>
+       </apex:commandLink>
+     </apex:facet>
+   <apex:outputLink value="/{!a.Id}" target="_blank">{!a.Name}</apex:outputLink>
+
+  </apex:column>
+
+                   <apex:facet name="header">
+                    <apex:commandLink value="Subject" action="{!sort}" rerender="pbId" >
+                    <apex:param name="sortField" value="Subject" assignTo="{!sortField}"/>
+                 <apex:outputPanel rendered="{!BEGINS(sortField,'Subject')}">
+                        &nbsp;<apex:image value="{!IF(sortDir = 'desc','/img/arrowDown.gif','/img/arrowUp.gif')}"/>
+                    </apex:outputPanel>  
+                    </apex:commandLink>
+                </apex:facet>  
+                        
+                      -->  
+                	                               
+        		</apex:repeat>  
+                                
+                <apex:column >
+                    	<apex:facet name="header">
+                           			Link To Detail Page
+                         </apex:facet>
+                     	<apex:outputLink value="/{!record.id}">{!record.id}</apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+            
+            <apex:panelGrid columns="8">
+                
+           		<apex:commandButton status="fetchStatus" reRender="pbId" value="First" action="{!con.first}" disabled="{!!con.hasPrevious}" title="First Page"/> 
+  
+                <apex:commandButton status="fetchStatus" reRender="pbId" value="Previous" action="{!con.previous}" disabled="{!!con.hasPrevious}" title="Previous Page"/> 
+  
+                <apex:commandButton status="fetchStatus" reRender="pbId" value="Next" action="{!con.next}" disabled="{!!con.hasNext}" title="Next Page"/> 
+  
+                <apex:commandButton status="fetchStatus" reRender="pbId" value="Last" action="{!con.last}" disabled="{!!con.hasNext}" title="Last Page"/>  
+            
+            </apex:panelGrid>
+            
+            
+         </apex:pageBlockSection>
+      </apex:pageBlock>
+    </apex:form>
+    
+</apex:component>
