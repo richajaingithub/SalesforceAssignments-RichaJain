@@ -1,9 +1,0 @@
-1. Objects
-
-Puchase_Order__c
-P__Cuchase_Order_Line_Items
-Product2 [Existing]
-
-
-OnlineShoppingAppPage.vpf	
-OnlineShoppingApp.apxc
