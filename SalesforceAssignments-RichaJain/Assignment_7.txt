@@ -1,0 +1,20 @@
+1. Objects
+
+Puchase_Order__c
+P__Cuchase_Order_Line_Items
+Product2 [Existing]
+
+
+2. Relationship
+
+Product , Product lines - master child relation
+
+3. Operations
+- Create a new order
+- select the product into the cart/order, so we will have to create a product line item 
+- If needed then remove the item from the order
+- List all the items in a particular order
+- 
+
+
+
