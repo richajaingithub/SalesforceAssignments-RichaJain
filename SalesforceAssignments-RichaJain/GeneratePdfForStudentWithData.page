@@ -1,0 +1,13 @@
+<apex:page standardController="Student__c"  renderAs="pdf">    
+    <apex:form >
+    <apex:pageBlock Title="Student Details">
+    	<apex:pageBlockSection >
+                 <apex:outputField value="{!Student__c.First_Name__c}"/>
+                 <apex:outputField value="{!Student__c.Last_Name__c}"/>
+                 <apex:outputField value="{!Student__c.Sex__c}"/>
+                 <apex:outputField value="{!Student__c.Dob__c}"/>                      	
+				 <apex:outputField value="{!Student__c.Email__c}"/>                      	
+             </apex:pageBlockSection> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

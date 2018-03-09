@@ -1,10 +1,3 @@
-<apex:page standardController="Student__c" extensions="StudentpdfController" showHeader="false" >
-     <apex:form >
-    <apex:actionFunction name="saveAttachement" action="{!saveAttachement}" rerender="allPanel"/>
-        <script>
-           window.onload=function()  {
-             saveAttachement();
-           };
-        </script>
-  </apex:form>
+<apex:page standardController="Student__c" extensions="StudentpdfController" action="{!savePDF}" renderAs="pdf" >
+	
 </apex:page>
