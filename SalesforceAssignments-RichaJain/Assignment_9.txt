@@ -1,0 +1,41 @@
+1) Add these buttons on student detail page 
+		a. When click on it Show hello world as alert         -- Created on the salesforce 
+		b.Open a new popup window and show his name and Class in a table    --- Created a button along with a page "PopupStudentDetails"
+
+
+2) Add a button on Class detail page when click on it open a popup window.. with one text box and one button when click on that button add a new student in this class with name as in textbox. 
+
+	 Added button along with page 
+
+	 AddStudentInClass.apxc
+	 AddStudentInThisClass.vfp
+
+
+3) Add a button named “Delete Students” on Student List View page when click on it 
+		a. Open a new VF Page named “Delete Students”
+		b. Page contains all selected records(show 3-4 common fields) as Table
+		c. If no records selected then show error Message “No records selected”
+		d. Show 2 buttons on VF “Continue” and “Cancel” Continue will delete records and return back to listview. Cancel do nothing and return back to listView
+
+	Button "Delete Students" on the list view
+	DeleteStudentListController.apxc
+	DeleteStudentPage.vfp
+
+
+
+4) Add a button on Contact list page when click on it show actual api name of all student fields as alert one by one.
+
+	Added the button for the same and javascript has the functionality
+	
+
+
+
+5) When click on new Button of any Student go New Class page.
+	
+	Added the button 
+
+
+	
+6) When click on edit button open a Popup page with its name in a text box. When user click on save then update the record , close popup and refresh the parent page. 
+		
+	EditStudentNameAss9Page.vfp
