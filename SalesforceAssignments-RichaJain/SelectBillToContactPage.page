@@ -1,0 +1,13 @@
+<apex:page controller="SelectBillToContactCtrl">
+    <apex:form >
+    <apex:messages />
+        <apex:pageBlock title="Select Contact" >
+            <apex:selectRadio id="Contacts" value="{!selectedContact}" layout="PageDirection">
+                  <apex:selectOptions value="{!contactNames}"/>
+            </apex:selectRadio>
+           <apex:commandButton value="Save" action="{!save}"/>
+           <apex:commandButton value="Clear" action="{!clear}"/>
+           <apex:commandButton value="Cancel" action="{!cancel}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

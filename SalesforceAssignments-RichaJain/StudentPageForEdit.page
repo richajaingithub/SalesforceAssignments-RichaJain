@@ -1,12 +1,14 @@
 <apex:page standardController="Student__c">
     <apex:form >
-    	 <apex:pageBlock title="Student Edit Object" >
+        <apex:pageMessages />
+        <apex:pageBlock title="Student Edit/Create Object" >
         	<apex:pageBlockSection >
                 <apex:outputLabel value="First Name" />   <apex:inputField value="{!Student__c.First_Name__c}"/>
                 <apex:outputLabel value="Last Name" />   <apex:inputField value="{!Student__c.Last_Name__c}"/>
                 <apex:outputLabel value="Sex" />   <apex:inputField value="{!Student__c.Sex__c}"/>
                 <apex:outputLabel value="Dob" />   <apex:inputField value="{!Student__c.Dob__c}"/>                      	
 				<apex:outputLabel value="Email" />   <apex:inputField value="{!Student__c.Email__c}"/>                      	
+                <apex:outputLabel value="Class" />   <apex:inputField value="{!Student__c.Class__c}"/>              
              </apex:pageBlockSection> 
              
             <apex:pageBlockButtons >

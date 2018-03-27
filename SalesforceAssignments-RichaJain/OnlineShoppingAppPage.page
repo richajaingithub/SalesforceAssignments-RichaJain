@@ -1,0 +1,72 @@
+<apex:page controller="OnlineShoppingApp" action="{!addOrder}" title="Online Shopping Cart" showHeader="false" sidebar="false">
+     <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/> 
+     <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+     <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
+     <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <apex:form >
+        
+        
+       <apex:pageBlock id="products" >
+       <apex:outputPanel layout="block" styleClass="Sections" >
+            Product List
+       </apex:outputPanel>
+       
+       <!-- Below section display all the products which can be added to the cart --> 
+        <div class="container">
+           <apex:pageBlockTable value="{!productList}" var="prod">
+              <apex:column headerValue="">
+              	<apex:commandLink action="{!addToCart}" styleClass="buttonStyle" value=""  > 
+                    <apex:param name="prodId" value="{!prod.Id}" assignTo="{!ProdId}"/>
+                    <i class="fa fa-plus" onclick="" aria-hidden="true"></i> 
+               	</apex:commandLink> 
+              </apex:column>     
+           	  <apex:column value="{!prod.Name}"/>
+              <apex:column value="{!prod.Price__c}"/>
+           </apex:pageBlockTable>
+        </div>
+        </apex:pageBlock> 
+        
+         <!-- Below section displays products which are added to the cart --> 
+       <apex:pageBlock mode="inlineEdit" id="cart" >
+           <apex:pageBlockTable value="{!purchaseList}" var="purchaseListProduct">	
+        		<apex:column headerValue="">
+              	<apex:commandLink action="{!removeFromCart}" styleClass="buttonStyle" value=""  > 
+                    <apex:param name="productId" value="{!purchaseListProduct.id}" assignTo="{!prodId}"/>
+                    <i class="fa fa-minus" onclick="" aria-hidden="true"></i> 
+               	</apex:commandLink> 
+                
+              </apex:column>     
+        	  <apex:column headerValue="Record ID">
+              		<apex:outputField value="{!purchaseListProduct.Id}">
+                       <apex:inlineEditSupport disabled="true"/>
+                    </apex:outputField>    
+              </apex:column>  
+               
+              <apex:column headerValue="Product Name">  
+                   <apex:outputField value="{!purchaseListProduct.Name}">
+                       <apex:inlineEditSupport disabled="true"/>
+                   </apex:outputField>
+              </apex:column>
+               
+              <apex:column headerValue="Quantity" title="Click to edit">  
+                   <apex:outputField value="{!purchaseListProduct.Quantity__c}">
+                       <apex:inlineEditSupport event="onclick" />
+                   </apex:outputField>
+              </apex:column>
+                         
+             <apex:column headerValue="Price">  
+                 <apex:outputField value="{!purchaseListProduct.Unit__c}">
+                     <apex:inlineEditSupport disabled="true"/>
+                 </apex:outputField>
+             </apex:column>
+               
+           </apex:pageBlockTable>
+       </apex:pageBlock>
+        
+          <!-- Below Section displays Button to Place the Order --> 
+         <div class="container" >
+         	<apex:commandButton action="{!generateBillForPlacedOrder}" value="Place Order"  />    
+         </div>
+        
+    </apex:form>
+</apex:page>

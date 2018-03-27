@@ -1,0 +1,19 @@
+<apex:page standardController="Class__c" extensions="AddStudentInClass" sidebar="false"  showHeader="false">
+    <apex:form >
+        
+      <apex:pageBlock title="Student Details">
+        <apex:pageBlockSection >
+         	<apex:outputLabel value="First Name" /><apex:inputText value="{!firstName}" /> 
+		 	<apex:outputLabel value="Last Name" /><apex:inputText value="{!lastName}" /> 
+        
+         	<apex:commandButton value="Save" action="{!saveStudentinThisClass}" />
+        </apex:pageBlockSection>
+          
+          <br/><br/><br/>
+          
+        <apex:pageBlockSection >
+       	{!msg} 
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

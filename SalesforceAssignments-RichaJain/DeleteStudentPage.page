@@ -1,0 +1,24 @@
+<apex:page standardController="Student__c" extensions="DeleteStudentListController" recordSetVar="students" sidebar="false"  showHeader="false">
+    <apex:form >
+    	<apex:pageBlock title="Delete All Students">
+        
+            <apex:outputPanel id="thePageBlock" rendered="{!ifAnySelected}">
+            <apex:pageBlockSection >
+            	<apex:pageBlockTable value="{!selected}" var="student">
+         			<apex:column value="{!student.First_Name__c}"/>
+                    <apex:column value="{!student.Last_Name__c}"/>
+       			</apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection >
+            	<apex:commandButton value="continue" action="{!redirectToListAfterDelete}"/>
+                <apex:commandButton value="cancel" action="{!cancel}"/>
+            </apex:pageBlockSection>
+        </apex:outputPanel>
+              <apex:pageBlockSection >
+            	{!deletionStatus} 
+            </apex:pageBlockSection>
+        
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
