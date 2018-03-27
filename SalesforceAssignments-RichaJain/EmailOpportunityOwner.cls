@@ -15,7 +15,7 @@ global class EmailOpportunityOwner implements Database.Batchable<sObject>  {
 	  List<String> sendTo = new List<String>();
       sendTo.add(opp.owner.email);
       mail.setToAddresses(sendTo);
-      mail.setReplyTo('richa5.richa5@gmail.com');
+      mail.setReplyTo('megha.negi@metacube.com');
       mail.setSenderDisplayName('Opportunity Scheduler Assignment');
     
       mail.setSubject('Opportunity not Updated since 30 days');

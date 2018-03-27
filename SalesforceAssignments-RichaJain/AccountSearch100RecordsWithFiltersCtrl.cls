@@ -6,11 +6,7 @@ public class AccountSearch100RecordsWithFiltersCtrl {
     public List<Account> accountSearchResults {get;set;}   
     
     public PageReference search(){
-        
-        System.debug('billing City = '+billingCity);
-        System.debug('billing State = '+billingState);
-        System.debug('billing Country = '+billingCountry);
-             
+           
         String query = 'select Name, AccountNumber,BillingCity,BillingState,BillingCountry from Account where id != Null ';
         
       	if(String.isNotEmpty(billingCity))
@@ -26,9 +22,4 @@ public class AccountSearch100RecordsWithFiltersCtrl {
         
         return null;
     }
-    
-    
-    
-    
-    
 }

@@ -12,6 +12,9 @@ public class StudentpdfController {
 		Blob pdfPageBlob; 
 		pdfPageBlob = pagePdf.getContentAsPDF();
         System.debug('pdfPageBlob = '+pdfPageBlob);
+        
+        deleteAttachmentsIfAny();
+        
     	Attachment a = new Attachment(); 
 		a.Body = pdfPageBlob; 
 		a.ParentID = idVal; 
@@ -19,9 +22,12 @@ public class StudentpdfController {
 		a.Description = 'TestDescription1'; 
 		
         insert a; 
-
-		//return new PageReference('/' + idVal); 
+        
 		return pagePdf;
     } 
+    
+    private void deleteAttachmentsIfAny(){                
+		delete [select id,name , parentId from attachment where name like 'StudentCustom%'];
+    }
  
 }

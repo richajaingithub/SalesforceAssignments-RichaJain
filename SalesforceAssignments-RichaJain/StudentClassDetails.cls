@@ -27,11 +27,12 @@ public class StudentClassDetails {
     }
          
        // 2. Create a function which returns a map where key is class and value is set of studentid in it.
-        public Map<Id,Set<Id>> getClassWithStudents(){
+        public static Map<Id,Set<Id>> getClassWithStudents(){
            
             Map<Id,Set<Id>> classStudentMap = new Map<Id,Set<Id>>();
             
             List<Student__c> studentList = [select Class__c, Id from Student__c]; 
+            System.debug('studentList '+studentList);
             
             Set<Id> studentSet = new Set<Id>();
             
@@ -46,15 +47,6 @@ public class StudentClassDetails {
                     classStudentMap.put(s.Class__c,sSet);
                 }
             }
-            
-            // Print the Map values
-             for (Id key : classStudentMap.keySet()) {
-    				Set<Id> studentIds = classStudentMap.get(key);
-                 for (Id sid :studentIds){
-    				System.debug('Class= '+key + ' ' + 'StudentID ='+ sid);
-					}
-                 System.debug('Starting with the new Class id for their Student details');
-             }
             return classStudentMap ;
         }
    
